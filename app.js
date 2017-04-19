@@ -11,19 +11,14 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var teams = [{
-  name: "Jet Oxen",
-  score: 100
-}, {
-  name: "Freedom Ducks",
-  score: 500
-}, {
-  name: "Indigo Pandemic",
-  score: 400
-}, {
-  name: "Whirling Leather",
-  score: 200
-}];
+var teams = [
+  "Jet Oxen",
+  "Freedom Ducks",
+  "Indigo Pandemic",
+  "Whirling Leather"
+].map(name => { return { name: name, score: 0 } });
+
+var TARGET_SCORE = 1000;
 
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
@@ -49,13 +44,28 @@ function getData() {
   });
 }
 
+function calculateScores() {
+  // mocking the scores by increasing each by a random amount
+  // if all teams achieve the target score, reset all scores
+  var teamsBelowTarget = teams.filter(team => team.score < TARGET_SCORE);
+
+  if (teamsBelowTarget.length === 0) {
+    teams.forEach(team => team.score = 0);
+  } else {
+    teams.forEach(team => {
+      var random = Math.floor(Math.random() * 80 + 20 + 400 / (10 + Math.sqrt(team.score)));
+      team.score += random;
+    });
+  }
+}
+
 getData();
+calculateScores();
 
 setInterval(getData, 300000);
+setInterval(calculateScores, 10000);
 
 app.get('/', function(req, res) {
-  // res.send(tweets);
-  // res.render()
   res.sendFile('index.html');
 });
 
