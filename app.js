@@ -54,8 +54,6 @@ getData();
 setInterval(getData, 300000);
 
 app.get('/', function(req, res) {
-  // res.send(tweets);
-  // res.render()
   res.sendFile('index.html');
 });
 

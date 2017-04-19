@@ -58,7 +58,7 @@ var drawChart = function(teams) {
     labels: teamNames,
     datasets: [{
       label: 'Current score',
-      data: teamScores,
+      data: teamScores.slice(),
       backgroundColor: backgroundColor,
       borderWidth: 1
     }]
@@ -69,4 +69,20 @@ var drawChart = function(teams) {
     data: data,
     options: options
   });
+
+  setInterval(function() {
+    var currentScores = chart.data.datasets[0].data;
+    var scoresBelowTarget = currentScores.filter(function(score) { return score < TARGET_SCORE; });
+
+    if (scoresBelowTarget.length === 0) {
+      chart.data.datasets[0].data = teamScores.slice();
+    } else {
+      chart.data.datasets[0].data.forEach(function(value, index) {
+        var random = Math.floor(Math.random() * 81 + 20) + 400 / Math.sqrt(chart.data.datasets[0].data[index]);
+        chart.data.datasets[0].data[index] += random;
+      });
+    }
+
+    chart.update();
+  }, 2000);
 }
