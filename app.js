@@ -3,6 +3,20 @@ var express = require('express');
 var app = express();
 var Twit = require('twit')
 
+var teams = [{
+  name: "Jet Oxen",
+  score: 100
+}, {
+  name: "Freedom Ducks",
+  score: 500
+}, {
+  name: "Indigo Pandemic",
+  score: 400
+}, {
+  name: "Whirling Leather",
+  score: 200
+}];
+
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
   consumer_secret:      process.env.CONSUMER_SECRET,
@@ -34,24 +48,5 @@ setInterval(getData, 300000);
 app.get('/', function(req, res) {
   res.send(tweets);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = app;
