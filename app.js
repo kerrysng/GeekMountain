@@ -1,7 +1,29 @@
 var url = require('url');
+var path = require('path');
 var express = require('express');
-var app = express();
+var engine = require('ejs-mate');
 var Twit = require('twit')
+var app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', engine);
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+var teams = [{
+  name: "Jet Oxen",
+  score: 100
+}, {
+  name: "Freedom Ducks",
+  score: 500
+}, {
+  name: "Indigo Pandemic",
+  score: 400
+}, {
+  name: "Whirling Leather",
+  score: 200
+}];
 
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
@@ -27,31 +49,18 @@ function getData() {
   });
 }
 
-getData()
+getData();
 
 setInterval(getData, 300000);
 
 app.get('/', function(req, res) {
-  res.send(tweets);
+  // res.send(tweets);
+  // res.render()
+  res.sendFile('index.html');
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/api/teams', function(req, res) {
+  res.json(teams);
+});
 
 module.exports = app;
