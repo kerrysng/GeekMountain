@@ -4,10 +4,10 @@ var app = express();
 var Twit = require('twit')
 
 var T = new Twit({
-  consumer_key:         'n0s4kgFuUKukyBCgHtxFwVBiz',
-  consumer_secret:      '9auuhWDIP28oPkJpq9A1Wlw0KlSwj6ZsdjYlfdrjMbN5tuavAc',
-  access_token:         '854296971204378625-GC31DOefy8ajPTmBvscbEUCAxcE3vvO',
-  access_token_secret:  'C4rALZ5KWh1Wu6Iq0OkENAJJz3vtt69nGQYzz2FYJFAbX',
+  consumer_key:         process.env.CONSUMER_KEY,
+  consumer_secret:      process.env.CONSUMER_SECRET,
+  access_token:         process.env.ACCESS_TOKEN,
+  access_token_secret:  process.env.ACCESS_TOKEN_SECRET,
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
@@ -19,15 +19,11 @@ var params = {
   count: 50
 };
 
+var tweets = [];
 
 function getData() {
   T.get('search/tweets', params, function(err, data, response) {
-    data.statuses.forEach(function(status) {
-      // return console.log(status.text);
-      response.render('home', {
-          Feed: status.text,
-      });
-    });
+    tweets = data.statuses.map(s => s.text);
   });
 }
 
@@ -35,7 +31,9 @@ getData()
 
 setInterval(getData, 300000);
 
-app.get('/', getData);
+app.get('/', function(req, res) {
+  res.send(tweets);
+});
 
 
 
