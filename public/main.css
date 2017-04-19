@@ -26,13 +26,13 @@ body {
 }
 
 .feed {
-  width: 33%;
-  display: inline-flex;
+  width: 45%;
+  display: inline-block;
 }
 
-.graph {
-  width: 66%;
-  display: inline-flex;
+.chart-container {
+  width: 45%;
+  display: inline-block;
 }
 
 
