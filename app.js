@@ -5,6 +5,7 @@ var engine = require('ejs-mate');
 var Twit = require('twit')
 var app = express();
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -45,13 +46,18 @@ var tweets = [];
 
 function getData() {
   T.get('search/tweets', params, function(err, data, response) {
-    tweets = data.statuses.map(s => s.text);
+    // tweets = data.statuses.map(s => s.text);
+      tweets.forEach(function (tweet, i) {
+        tweets.push(JSON.parse(tweet));
+      });
   });
 }
 
-getData();
+var stream = T.stream('statuses/filter', { track: '@MelbourneGA' })
 
-setInterval(getData, 300000);
+stream.on('tweet', function (tweet) {
+  console.log(tweet)
+})
 
 app.get('/', function(req, res) {
   // res.send(tweets);
