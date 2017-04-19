@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Bangers');
+/*font-family: 'Open Sans', sans-serif;
+font-family: 'Bangers', cursive;*/
+
+#header {
+  font-family: 'Bangers', cursive;
+  font-size: 52pt;
+  text-shadow: 1px 1px 2px #cc0000, 0 0 1em #cc0000, 0 0 0.2em #cc0000;
+  color: #ebdb00;
+}
+
+.wrapper {
+  background-image: url('geekmountain.jpg');
+  padding-left: 300px;
+}
+
+
+@media only screen and (max-width : 992px) {
+  .wrapper {
+    padding-left: 0;
+  }
+}
