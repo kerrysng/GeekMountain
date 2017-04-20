@@ -4,6 +4,7 @@ var express = require('express');
 var engine = require('ejs-mate');
 var Twit = require('twit')
 var app = express();
+var _ = require('underscore')
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -38,22 +39,19 @@ var stream = T.stream('user');
 
 stream.on('tweet', getStream);
 // console.log(stream);
-var timeline = []
 
-function getStream(data) {
-  var text = data.text
-  var self = data.user.screen_name
-  //
-  timeline.forEach(function (self, i) {
-    timeline.push(JSON.parse(self))
-  });
+function getStream(tweet) {
+  _.each(tweet.entities.hashtags, function(hashtag) {
+    var hashStr = '#' + hashtag.text.toLowerCase();
+  })
+
 }
 
 // Anytime someone favorites me
 stream.on('favorite', favorite);
 
 function favorite(eventMsg) {
-  console.log("Follow event!");
+  console.log("Favourite event!");
   var name = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
   randTweet('.@' + screenName + ' Thank You');
@@ -104,7 +102,11 @@ calculateScores();
 setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {
+    message: function(tweet) {
+            $('#tweet-list').appendTo('<li class= "list-group-item">' + tweet.text + '</li>')
+    }
+  });
 });
 
 app.get('/api/teams', function(req, res) {
