@@ -49,10 +49,10 @@ function getStream(data) {
   });
 }
 
-// Anytime someone favourites me
-stream.on('favourite', favourite);
+// Anytime someone favorites me
+stream.on('favorite', favorite);
 
-function favourite(eventMsg) {
+function favorite(eventMsg) {
   console.log("Follow event!");
   var name = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
@@ -63,7 +63,7 @@ function favourite(eventMsg) {
 // randTweet();
 // setInterval(randTweet, 360*10000);
 
-function randTweet() {
+function randTweet(txt) {
 
   // var r = Math.floor(Math.random()*100);
 
