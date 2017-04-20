@@ -36,20 +36,52 @@ app.use(require('cookie-parser')());
 var stream = T.stream('user');
 
 stream.on('tweet', getStream);
-console.log(stream);
+// console.log(stream);
 var timeline = []
 
-function getStream(eventMsg) {
-  // console.log(eventMsg);
-  // var text = eventMsg.text
-  var self = eventMsg.user.screen_name
+function getStream(data) {
+  var text = data.text
+  var self = data.user.screen_name
   //
   timeline.forEach(function (self, i) {
     timeline.push(JSON.parse(self))
   });
 }
 
-// console.log(getStream);
+// Anytime someone favourites me
+stream.on('favourite', favourite);
+
+function favourite(eventMsg) {
+  console.log("Follow event!");
+  var name = eventMsg.source.name;
+  var screenName = eventMsg.source.screen_name;
+  randTweet('.@' + screenName + ' Thank You');
+}
+
+
+// randTweet();
+// setInterval(randTweet, 360*10000);
+
+function randTweet() {
+
+  // var r = Math.floor(Math.random()*100);
+
+  var tweet = {
+    status: txt
+  };
+
+  T.post('statuses/update', tweet, tweeted);
+
+  function tweeted(err, data, response){
+    if(err) {
+      console.log('Error');
+    }else {
+      console.log('Its working');
+    }
+  };
+
+}
+
 
 function calculateScores() {
   // mocking the scores by increasing each by a random amount
