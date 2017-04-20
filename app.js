@@ -93,7 +93,7 @@ function calculateScores() {
     teams.forEach(team => team.score = 0);
   } else {
     teams.forEach(team => {
-      var random = Math.floor(Math.random() * 50 + 20 + 14 / Math.log2(team.score / 2000 + 1.1));
+      var random = Math.floor(Math.random() * 50 + 20 + 15 / Math.log2(team.score / 2000 + 1.1));
       team.score += random;
     });
   }
