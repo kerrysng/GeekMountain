@@ -33,6 +33,7 @@
   margin-left: -4px;
   padding: .3em;
   text-align: center;
+  cursor: pointer;
 }
 
 .chart-wrapper:before,

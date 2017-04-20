@@ -17,14 +17,16 @@ body {
   background-size: cover;
   /*background-blend-mode: luminosity;*/
   background-color: #FFFFFF;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   padding: 5%;
+  margin-left: 300px;
 }
 
 @media only screen and (max-width : 992px) {
   body {
     background-image: none;
     background-color: #47466a;
+    margin-left: 0;
   }
 }
