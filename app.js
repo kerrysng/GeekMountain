@@ -70,7 +70,7 @@ setInterval(getData, 300000);
 setInterval(calculateScores, 10000);
 
 app.get('/', function(req, res) {
-  res.sendFile('index.html');
+  res.render('index');
 });
 
 app.get('/api/teams', function(req, res) {
