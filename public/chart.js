@@ -71,6 +71,8 @@ var drawChart = function(teams) {
       }]
     }
 
+    $chart[0].height = innerHeight * 0.8;
+
     chart = new Chart($chart, {
       type: 'bar',
       data: data,
