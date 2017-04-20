@@ -3,6 +3,7 @@ Chart.defaults.bar.scales.xAxes[0].barPercentage = 1.33;
 Chart.defaults.bar.scales.xAxes[0].gridLines.display = false;
 Chart.defaults.scale.ticks.beginAtZero = true;
 Chart.defaults.global.legend.display = false;
+Chart.defaults.global.defaultFontColor = 'white';
 
 var chart, $chart = $('.chart');
 var TARGET_SCORE = 1000;
