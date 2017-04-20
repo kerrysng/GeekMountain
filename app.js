@@ -32,21 +32,24 @@ var T = new Twit({
 //add cookie parsing functionality to our express app
 app.use(require('cookie-parser')());
 
-var params = {
-  q: '@MelbourneGA',
-  count: 50
-};
+// set up user stream
+var stream = T.stream('user');
 
-var tweets = [];
+stream.on('tweet', getStream);
+console.log(stream);
+var timeline = []
 
-function getData() {
-  T.get('search/tweets', params, function(err, data, response) {
-    // tweets = data.statuses.map(s => s.text);
-      tweets.forEach(function (tweet, i) {
-        tweets.push(JSON.parse(tweet));
-      });
+function getStream(eventMsg) {
+  // console.log(eventMsg);
+  // var text = eventMsg.text
+  var self = eventMsg.user.screen_name
+  //
+  timeline.forEach(function (self, i) {
+    timeline.push(JSON.parse(self))
   });
 }
+
+// console.log(getStream);
 
 function calculateScores() {
   // mocking the scores by increasing each by a random amount
@@ -63,10 +66,9 @@ function calculateScores() {
   }
 }
 
-getData();
 calculateScores();
 
-setInterval(getData, 300000);
+// setInterval(getData, 300000);
 setInterval(calculateScores, 10000);
 
 app.get('/', function(req, res) {
