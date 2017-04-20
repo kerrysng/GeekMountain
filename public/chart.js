@@ -78,3 +78,5 @@ var drawChart = function(teams) {
     });
   }
 }
+
+$(".button-collapse").sideNav();
