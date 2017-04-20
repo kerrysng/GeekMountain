@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="main.css" media="screen">
+  <link rel="stylesheet" href="tweets.css">
+  <link rel="stylesheet" href="chart.css">
   <title>GeekMountain</title>
 </head>
 <body>
@@ -12,21 +14,8 @@
     <h1 id="header">SISYPHUS</h1>
   </header>
 
-<div class="tweet-containter">
-<a class="twitter-timeline" data-width="400" data-height="900" href="https://twitter.com/GA">Tweets by GA</a>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-  <div class="wrapper">
-    <div class="feed"></div>
-    <div class="chart-container">
-      <canvas class="chart"></canvas>
-    </div>
-  </div>
-
-  <footer>
-
-  </footer>
+  <%- partial('_tweets') -%>
+  <%- partial('_chart') -%>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" integrity="sha256-GcknncGKzlKm69d+sp+k3A2NyQE+jnu43aBl6rrDN2I=" crossorigin="anonymous"></script>
