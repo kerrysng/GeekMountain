@@ -8,4 +8,4 @@ var displayScores = function() {
 
 displayScores();
 
-setInterval(displayScores, 10000);
+setInterval(displayScores, 5000);
