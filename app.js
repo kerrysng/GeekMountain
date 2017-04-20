@@ -20,6 +20,7 @@ var teams = [
 ].map(name => { return { name: name, score: 0 } });
 
 var TARGET_SCORE = 1000;
+var UPDATE_INTERVAL_SCORES = 2000;
 
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
@@ -100,8 +101,7 @@ function calculateScores() {
 
 calculateScores();
 
-// setInterval(getData, 300000);
-setInterval(calculateScores, 10000);
+setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
 app.get('/', function(req, res) {
   res.render('index');
