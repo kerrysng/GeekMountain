@@ -6,6 +6,23 @@ var displayScores = function() {
   });
 };
 
+var displayTweets = function() {
+  $.ajax({
+    url: '/api/tweets'
+  }).done(function(tweets) {
+    tweets.forEach(function(tweet) {
+      $('#tweet-list').empty();
+      $('#tweet-list').append($('<div>').text(tweet.text));
+
+      if (tweet.entities.media && tweet.entities.media[0].media_url) {
+        $('#tweet-list').append($('<img>').attr('src', tweet.entities.media[0].media_url));
+      }
+    });
+  });
+};
+
 displayScores();
+displayTweets();
 
 setInterval(displayScores, 5000);
+setInterval(displayTweets, 5000);

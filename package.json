@@ -15,8 +15,7 @@
     "express": "^4.15.2",
     "oauth": "^0.9.15",
     "twit": "^2.2.5",
-    "twitter-timeline": "^1.0.1",
-    "underscore": "^1.8.3"
+    "twitter-timeline": "^1.0.1"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
