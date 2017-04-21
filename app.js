@@ -21,7 +21,7 @@ var teams = [
 var tweets = [];
 
 var TARGET_SCORE = 1000;
-var UPDATE_INTERVAL_SCORES = 2000;
+var UPDATE_INTERVAL_SCORES = 5000;
 
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
@@ -90,7 +90,7 @@ function calculateScores() {
     teams.forEach(team => team.score = 0);
   } else {
     teams.forEach(team => {
-      var random = Math.floor(Math.random() * 80 + 20 + 400 / (10 + Math.sqrt(team.score)));
+      var random = Math.floor(Math.random() * 50 + 20 + 15 / Math.log2(team.score / 2000 + 1.1));
       team.score += random;
     });
   }
