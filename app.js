@@ -60,12 +60,12 @@ function favorite(eventMsg) {
 // randTweet();
 // setInterval(randTweet, 5000);
 
-function randTweet() {
+function randTweet(txt) {
 
-  var r = Math.floor(Math.random()*100);
+  // var r = Math.floor(Math.random()*100);
 
   var tweet = {
-    status: 'Testing ' + r
+    status: txt
   };
 
   T.post('statuses/update', tweet, tweeted);
