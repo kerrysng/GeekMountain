@@ -83,3 +83,6 @@ var drawChart = function(teams) {
 }
 
 $(".button-collapse").sideNav();
+$(".button-toggle").click(function() {
+  $(".button-toggle").toggle(300);
+});

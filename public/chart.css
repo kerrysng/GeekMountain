@@ -17,6 +17,10 @@
   vertical-align: middle;
 }
 
+.team-info {
+  display: none;
+}
+
 .side-nav {
   background: #47466a;
   text-align: center;
@@ -24,16 +28,36 @@
 
 .button-collapse {
   background: #212121;
-  font-size: 1.8em;
   color: #d3cbbe;
+  font-size: 25.2px;
   width: 50px;
   height: 50px;
   border-top-right-radius: 30%;
   border-bottom-right-radius: 30%;
+  padding: 7.56px;
   margin-left: -4px;
-  padding: .3em;
+}
+
+.button-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #2f2e48;
+  color: linen;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 30%;
+}
+
+.button-collapse, .button-toggle {
   text-align: center;
   cursor: pointer;
+}
+
+.button-teams {
+  display: none;
 }
 
 .chart-wrapper:before,
