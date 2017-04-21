@@ -4,6 +4,7 @@ var express = require('express');
 var engine = require('ejs-mate');
 var Twit = require('twit')
 var app = express();
+var _ = require('underscore')
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +21,7 @@ var teams = [
 ].map(name => { return { name: name, score: 0 } });
 
 var TARGET_SCORE = 1000;
-var UPDATE_INTERVAL_SCORES = 2000;
+var UPDATE_INTERVAL_SCORES = 5000;
 
 var T = new Twit({
   consumer_key:         process.env.CONSUMER_KEY,
@@ -38,22 +39,19 @@ var stream = T.stream('user');
 
 stream.on('tweet', getStream);
 // console.log(stream);
-var timeline = []
 
-function getStream(data) {
-  var text = data.text
-  var self = data.user.screen_name
-  //
-  timeline.forEach(function (self, i) {
-    timeline.push(JSON.parse(self))
-  });
+function getStream(tweet) {
+  _.each(tweet.entities.hashtags, function(hashtag) {
+    var hashStr = '#' + hashtag.text.toLowerCase();
+  })
+
 }
 
 // Anytime someone favorites me
 stream.on('favorite', favorite);
 
 function favorite(eventMsg) {
-  console.log("Follow event!");
+  console.log("Favourite event!");
   var name = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
   randTweet('.@' + screenName + ' Thank You');
@@ -93,7 +91,7 @@ function calculateScores() {
     teams.forEach(team => team.score = 0);
   } else {
     teams.forEach(team => {
-      var random = Math.floor(Math.random() * 80 + 20 + 400 / (10 + Math.sqrt(team.score)));
+      var random = Math.floor(Math.random() * 50 + 20 + 15 / Math.log2(team.score / 2000 + 1.1));
       team.score += random;
     });
   }
@@ -104,7 +102,11 @@ calculateScores();
 setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {
+    message: function(tweet) {
+            $('#tweet-list').appendTo('<li class= "list-group-item">' + tweet.text + '</li>')
+    }
+  });
 });
 
 app.get('/api/teams', function(req, res) {
