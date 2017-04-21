@@ -10,8 +10,9 @@ var displayTweets = function() {
   $.ajax({
     url: '/api/tweets'
   }).done(function(tweets) {
+    $('#tweet-list').empty();
+
     tweets.forEach(function(tweet) {
-      $('#tweet-list').empty();
       $('#tweet-list').append($('<div>').text(tweet.text));
 
       if (tweet.entities.media && tweet.entities.media[0].media_url) {
