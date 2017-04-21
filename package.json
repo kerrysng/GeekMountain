@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r dotenv/config server.js"
+    "dev": "nodemon -r dotenv/config server.js",
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "Sisyphus",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.3",
@@ -20,5 +21,8 @@
   "devDependencies": {
     "dotenv": "^4.0.0",
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "6.9.4"
   }
 }
