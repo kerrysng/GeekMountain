@@ -4,8 +4,6 @@ var express = require('express');
 var engine = require('ejs-mate');
 var Twit = require('twit')
 var app = express();
-var _ = require('underscore')
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
@@ -19,6 +17,8 @@ var teams = [
   "Indigo Pandemic",
   "Whirling Leather"
 ].map(name => { return { name: name, score: 0 } });
+
+var tweets = [];
 
 var TARGET_SCORE = 1000;
 var UPDATE_INTERVAL_SCORES = 5000;
@@ -41,10 +41,9 @@ stream.on('tweet', getStream);
 // console.log(stream);
 
 function getStream(tweet) {
-  _.each(tweet.entities.hashtags, function(hashtag) {
-    var hashStr = '#' + hashtag.text.toLowerCase();
-  })
+  console.log('Tweet incoming!!!');
 
+  tweets.push(tweet);
 }
 
 // Anytime someone favorites me
@@ -59,7 +58,7 @@ function favorite(eventMsg) {
 
 
 // randTweet();
-// setInterval(randTweet, 360*10000);
+// setInterval(randTweet, 5000);
 
 function randTweet(txt) {
 
@@ -102,15 +101,15 @@ calculateScores();
 setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
 app.get('/', function(req, res) {
-  res.render('index', {
-    message: function(tweet) {
-            $('#tweet-list').appendTo('<li class= "list-group-item">' + tweet.text + '</li>')
-    }
-  });
+  res.render('index');
 });
 
 app.get('/api/teams', function(req, res) {
   res.json(teams);
+});
+
+app.get('/api/tweets', function(req, res) {
+  res.json(tweets);
 });
 
 module.exports = app;
