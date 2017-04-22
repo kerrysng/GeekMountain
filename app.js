@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var teams = JSON.parse(fs.readFileSync('teams.json')).map(team => { team.score = 0; return team; });
+var teams = JSON.parse(fs.readFileSync('./teams.json')).map(team => { team.score = 0; return team; });
 var tweets = [];
 
 var TARGET_SCORE = 1000;
@@ -51,7 +51,6 @@ function favorite(eventMsg) {
   randTweet('.@' + screenName + ' Thank You');
 }
 
-
 // randTweet();
 // setInterval(randTweet, 5000);
 
@@ -75,7 +74,6 @@ function randTweet(txt) {
 
 }
 
-
 function calculateScores() {
   // mocking the scores by increasing each by a random amount
   // if all teams achieve the target score, reset all scores
@@ -95,8 +93,9 @@ calculateScores();
 
 setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
+// routes
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', { teams: teams });
 });
 
 app.get('/api/teams', function(req, res) {
