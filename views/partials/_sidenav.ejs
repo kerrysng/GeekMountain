@@ -1,0 +1,13 @@
+<div class="side-nav-wrapper">
+  <div data-activates="slide-out" class="button-collapse">
+    <i class="fa fa-fw fa-bar-chart"></i>
+  </div>
+
+  <div id="slide-out" class="side-nav fixed">
+    <div class="button-toggle button-chart scale-transition scale-in"><i class="fa fa-fw fa-bar-chart"></i></div>
+    <div class="button-toggle button-teams scale-transition scale-out"><i class="fa fa-fw fa-users"></i></div>
+
+    <%- partial('_chart') -%>
+    <%- partial('_teams') -%>
+  </div>
+</div>

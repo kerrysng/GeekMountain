@@ -84,5 +84,6 @@ var drawChart = function(teams) {
 
 $(".button-collapse").sideNav();
 $(".button-toggle").click(function() {
-  $(".button-toggle").toggle(300);
+  $(".button-toggle").toggleClass('scale-in');
+  $(".button-toggle").toggleClass('scale-out');
 });

@@ -1,4 +1,4 @@
-.chart-wrapper {
+.side-nav-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,7 +6,7 @@
   z-index: 1000;
 }
 
-.chart-wrapper:before, .side-nav:before {
+.side-nav-wrapper:before, .side-nav:before {
   content: '';
   vertical-align: middle;
   height: 100%;
@@ -56,11 +56,7 @@
   cursor: pointer;
 }
 
-.button-teams {
-  display: none;
-}
-
-.chart-wrapper:before,
+.side-nav-wrapper:before,
 .side-nav:before,
 .chart-container,
 .button-collapse {
