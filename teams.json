@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Jet Oxen",
+    "scorers": ["Cameron Poe", "Bryan Mills", "Stacey Pilgrim"],
+    "runner": "Cecilia Tallis"
+  },
+  {
+    "name": "Freedom Ducks",
+    "scorers": ["Castor Troy", "Cathy Hyatt", "Sabina Spielrein"],
+    "runner": "Bad Cop"
+  },
+  {
+    "name": "Indigo Pandemic",
+    "scorers": ["Johnny Blaze", "Martin Harris", "Meg Brickman"],
+    "runner": "Vera Phillips"
+  },
+  {
+    "name": "Whirling Leather",
+    "scorers": ["Benjamin Gates", "Jillian Stewart", "Anna Karenina"],
+    "runner": "Aslan"
+  }
+]

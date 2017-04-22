@@ -1,4 +1,5 @@
 var url = require('url');
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var engine = require('ejs-mate');
@@ -11,13 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var teams = [
-  "Jet Oxen",
-  "Freedom Ducks",
-  "Indigo Pandemic",
-  "Whirling Leather"
-].map(name => { return { name: name, score: 0 } });
-
+var teams = JSON.parse(fs.readFileSync('teams.json')).map(team => { team.score = 0; return team; });
 var tweets = [];
 
 var TARGET_SCORE = 1000;
