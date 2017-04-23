@@ -1,7 +1,7 @@
 <div class="teams-container">
   <% teams.forEach(function(team) { %>
   <div class="team">
-    <header class="z-depth-4" style="background: linear-gradient(to right, <%= team.color %>, transparent);">
+    <header class="z-depth-4" style="background: <%= team.color %>; background: linear-gradient(to right, <%= team.color %>, transparent);">
       <img src="<%= team.imageUrl %>">
       <span class="name"><%= team.name %></span>
     </header>
