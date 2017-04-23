@@ -1,11 +1,88 @@
 .list-group-item {
-  
+
 
 }
 #tweet-list {
+  display: flex;
+  flex-flow: column-reverse wrap;
+}
+
+.list-group.div {
+
 
 }
 
-.list-group {
-
+.twitter-wrapper {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  padding: 0 16px 16px 16px;
+  max-width: 70%;
+  background-color: rgba(255, 255, 255, 0.5)
 }
+.twitter-wrapper img {
+  padding-bottom: 1.5em;
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
+}
+/*img {
+
+}*/
+@media only screen and (max-width : 992px) {
+
+  .twitter-wrapper img {
+    max-width: 95%;
+    max-height: 80%;
+  }
+  #header {
+    font-family: 'Carter One', cursive;
+    font-size: 18pt;
+  }
+  .soc li {
+    display:inline-block;;
+    *display:inline;
+    zoom:0;
+    margin-right: 0px;
+  }
+  .soc li a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+  }
+  .twitter-wrapper {
+    font-size: 10pt;
+    max-width: 70%;
+    background-color: rgba(255, 255, 255, 0.50)
+  }
+  .soc_media {
+    float: left;
+    width: 70px;
+  }
+}
+/*blockquote.twitter-tweet p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+blockquote.twitter-tweet a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+
+blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+}*/
