@@ -1,15 +1,6 @@
-.list-group-item {
-
-
-}
 #tweet-list {
   display: flex;
   flex-flow: column-reverse wrap;
-}
-
-.list-group.div {
-
-
 }
 
 .twitter-wrapper {
@@ -34,9 +25,7 @@
   max-width: 100%;
   height: auto;
 }
-/*img {
 
-}*/
 @media only screen and (max-width : 992px) {
 
   .twitter-wrapper img {
