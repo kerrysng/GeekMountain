@@ -27,3 +27,9 @@ displayTweets();
 
 setInterval(displayScores, 5000);
 setInterval(displayTweets, 5000);
+
+$(window).scroll(function(){
+       $scrollingDiv
+              .stop()
+              .animate({"marginTop": ($(window).scrollTop() + 30) + "px"}, "slow" );
+});
