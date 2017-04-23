@@ -2,24 +2,28 @@
   {
     "name": "Jet Oxen",
     "imageUrl": "/images/jet-oxen.gif",
+    "color": "rgba(255, 99, 132, 1)",
     "scorers": ["Cameron Poe", "Bryan Mills", "Stacey Pilgrim"],
     "runner": "Cecilia Tallis"
   },
   {
     "name": "Freedom Ducks",
     "imageUrl": "/images/freedom-ducks.png",
+    "color": "rgba(54, 162, 235, 1)",
     "scorers": ["Castor Troy", "Cathy Hyatt", "Sabina Spielrein"],
     "runner": "Bad Cop"
   },
   {
     "name": "Indigo Pandemic",
     "imageUrl": "/images/indigo-pandemic.png",
+    "color": "rgba(255, 206, 86, 1)",
     "scorers": ["Johnny Blaze", "Martin Harris", "Meg Brickman"],
     "runner": "Vera Phillips"
   },
   {
     "name": "Whirling Leather",
     "imageUrl": "/images/whirling-leather.png",
+    "color": "rgba(75, 192, 192, 1)",
     "scorers": ["Benjamin Gates", "Jillian Stewart", "Anna Karenina"],
     "runner": "Aslan"
   }
