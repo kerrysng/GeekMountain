@@ -4,10 +4,14 @@
   </div>
 
   <div id="slide-out" class="side-nav fixed">
-    <div class="button-toggle button-chart scale-transition scale-in"><i class="fa fa-fw fa-bar-chart"></i></div>
-    <div class="button-toggle button-teams scale-transition scale-out"><i class="fa fa-fw fa-users"></i></div>
+    <header>
+      <div class="button-toggle scale-transition scale-out"><i class="fa fa-fw fa-bar-chart"></i></div>
+      <div class="button-toggle scale-transition scale-in"><i class="fa fa-fw fa-users"></i></div>
+    </header>
 
-    <%- partial('_chart') -%>
-    <%- partial('_teams') -%>
+    <div class="content">
+      <%- partial('_chart') -%>
+      <%- partial('_teams') -%>
+    </div>
   </div>
 </div>

@@ -1,7 +1,12 @@
-<div class="teams-info">
+<div class="teams-container">
   <% teams.forEach(function(team) { %>
   <div>
-    <!--  Team data here -->
+    <div class="logo-color">
+      <img src="<%= team.imageUrl %>">
+    </div>
+    <div class="details">
+      <div><%= team.name %></div>
+    </div>
   </div>
   <% }); %>
 </div>

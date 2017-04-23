@@ -6,24 +6,10 @@
   z-index: 1000;
 }
 
-.side-nav-wrapper:before, .side-nav:before {
+.side-nav-wrapper:before {
   content: '';
   vertical-align: middle;
   height: 100%;
-}
-
-.chart-container {
-  width: 90%;
-  vertical-align: middle;
-}
-
-.team-info {
-  display: none;
-}
-
-.side-nav {
-  background: #47466a;
-  text-align: center;
 }
 
 .button-collapse {
@@ -36,6 +22,24 @@
   border-bottom-right-radius: 30%;
   padding: 7.56px;
   margin-left: -4px;
+}
+
+.side-nav-wrapper:before, .button-collapse {
+  display: inline-block;
+}
+
+.side-nav {
+  background: #47466a;
+}
+
+.side-nav header {
+  height: 70px;
+  margin-bottom: 30px;
+}
+
+.side-nav .content > div {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .button-toggle {
@@ -56,9 +60,19 @@
   cursor: pointer;
 }
 
-.side-nav-wrapper:before,
-.side-nav:before,
-.chart-container,
-.button-collapse {
+.teams-container {
+  display: none;
+}
+
+.teams-container .logo-color {
+  width: 40px;
+  height: 40px;
+}
+
+.teams-container img {
+  max-width: 100%;
+}
+
+.teams-container .logo-color, .teams-container .details {
   display: inline-block;
 }

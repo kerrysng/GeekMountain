@@ -80,10 +80,10 @@ var drawChart = function(teams) {
       options: options
     });
   }
-}
+};
 
-$(".button-collapse").sideNav();
-$(".button-toggle").click(function() {
-  $(".button-toggle").toggleClass('scale-in');
-  $(".button-toggle").toggleClass('scale-out');
+$('.button-collapse').sideNav();
+$('.button-toggle').click(function() {
+  $('.button-toggle').toggleClass('scale-in scale-out');
+  $('.content > div').slideToggle();
 });
