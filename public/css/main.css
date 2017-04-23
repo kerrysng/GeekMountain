@@ -13,7 +13,7 @@ font-family: 'Press+Start+2P', cursive;*/
 }
 
 body {
-  background-image: url('background2.png');
+  background-image: url('/images/background2.png');
   background-size: cover;
   /*background-blend-mode: luminosity;*/
   background-color: #FFFFFF;
@@ -33,11 +33,11 @@ body {
 
 @font-face {
     font-family: 'si';
-    src: url('font files/socicon.eot');
-    src: url('font files/socicon.eot?#iefix') format('embedded-opentype'),
-         url('font files/socicon.woff') format('woff'),
-         url('public/font files/socicon.ttf') format('truetype'),
-         url('font files/socicon.svg#icomoonregular') format('svg');
+    src: url('/font files/socicon.eot');
+    src: url('/font files/socicon.eot?#iefix') format('embedded-opentype'),
+         url('/font files/socicon.woff') format('woff'),
+         url('/font files/socicon.ttf') format('truetype'),
+         url('/font files/socicon.svg#icomoonregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
