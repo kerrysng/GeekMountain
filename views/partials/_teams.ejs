@@ -1,11 +1,15 @@
 <div class="teams-container">
   <% teams.forEach(function(team) { %>
-  <div>
-    <div class="logo-color">
+  <div class="team">
+    <header class="z-depth-4" style="background: linear-gradient(to right, <%= team.color %>, transparent);">
       <img src="<%= team.imageUrl %>">
-    </div>
-    <div class="details">
-      <div><%= team.name %></div>
+      <span class="name"><%= team.name %></span>
+    </header>
+    <div class="details z-depth-4" style="background: <%= team.color.replace(/,[\d\.\s]+\)/, ', 0.6)') %>">
+      <% team.scorers.forEach(function(scorer) { %>
+      <div><i class="fa fa-fw fa-crosshairs"></i> <%= scorer %></div>
+      <% }); %>
+      <div><i class="fa fa-fw fa-road"></i> <%= team.runner %>x</div>
     </div>
   </div>
   <% }); %>

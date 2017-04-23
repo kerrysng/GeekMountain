@@ -43,11 +43,7 @@ var drawChart = function(teams) {
   } else {
     var teamNames = teams.map(function(team) { return team.name; });
     var teamColors  = teams.map(function(team) { return team.color; });
-    var backgroundColor = teamColors.map(function(color) {
-      var arr = color.split(',');
-      arr[arr.length - 1] = '0.65)';
-      return arr.join(',');
-    });
+    var backgroundColor = teamColors.map(function(color) { return color.replace(/,[\d\.\s]+\)/, ', 0.65)'); });
 
     var data = {
       labels: teamNames,
