@@ -28,17 +28,18 @@
   max-width: 70%;
   background-color: rgba(255, 255, 255, 0.5)
 }
-.twitter-wrapper:img {
+.twitter-wrapper img {
   padding-bottom: 1.5em;
   z-index: 1;
-}
-img {
   max-width: 100%;
   height: auto;
 }
+/*img {
+
+}*/
 @media only screen and (max-width : 992px) {
 
-  img {
+  .twitter-wrapper img {
     max-width: 95%;
     max-height: 80%;
   }
@@ -47,10 +48,10 @@ img {
     font-size: 18pt;
   }
   .soc li {
-      display:inline-block;;
-      *display:inline;
-      zoom:0;
-      margin-right: 0px;
+    display:inline-block;;
+    *display:inline;
+    zoom:0;
+    margin-right: 0px;
   }
   .soc li a {
     width: 50px;
