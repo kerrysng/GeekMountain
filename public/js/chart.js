@@ -6,25 +6,9 @@ Chart.defaults.global.legend.display = false;
 Chart.defaults.global.defaultFontColor = 'white';
 
 var chart, $chart = $('.chart');
+var $buttonToggle = $('.button-toggle');
+var $innerContent = $('.content > div');
 var TARGET_SCORE = 1000;
-
-var backgroundColors = [
-  'rgba(255, 99, 132, 0.65)',
-  'rgba(54, 162, 235, 0.65)',
-  'rgba(255, 206, 86, 0.65)',
-  'rgba(75, 192, 192, 0.65)',
-  'rgba(153, 102, 255, 0.65)',
-  'rgba(255, 159, 64, 0.65)'
-];
-
-var borderColors = [
-  'rgba(255,99,132,1)',
-  'rgba(54, 162, 235, 1)',
-  'rgba(255, 206, 86, 1)',
-  'rgba(75, 192, 192, 1)',
-  'rgba(153, 102, 255, 1)',
-  'rgba(255, 159, 64, 1)'
-];
 
 var annotations = {
   annotations: [{
@@ -58,8 +42,8 @@ var drawChart = function(teams) {
     chart.update();
   } else {
     var teamNames = teams.map(function(team) { return team.name; });
-    var backgroundColor = teams.map(function(team, index) { return backgroundColors[index % backgroundColors.length]; });
-    var borderColor = teams.map(function(team, index) { return borderColors[index % borderColors.length]; });
+    var teamColors  = teams.map(function(team) { return team.color; });
+    var backgroundColor = teamColors.map(function(color) { return color.replace(/,[\d\.\s]+\)/, ', 0.65)'); });
 
     var data = {
       labels: teamNames,
@@ -67,7 +51,7 @@ var drawChart = function(teams) {
         label: 'Current score',
         data: teamScores,
         backgroundColor: backgroundColor,
-        borderColor: borderColor,
+        borderColor: teamColors,
         borderWidth: 1
       }]
     }
@@ -80,6 +64,10 @@ var drawChart = function(teams) {
       options: options
     });
   }
-}
+};
 
-$(".button-collapse").sideNav();
+$('.button-collapse').sideNav();
+$buttonToggle.click(function() {
+  $buttonToggle.toggleClass('scale-in scale-out');
+  $innerContent.slideToggle();
+});

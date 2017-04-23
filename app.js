@@ -1,11 +1,10 @@
 var url = require('url');
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var engine = require('ejs-mate');
 var Twit = require('twit')
 var app = express();
-var _ = require('underscore')
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
@@ -13,12 +12,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var teams = [
-  "Jet Oxen",
-  "Freedom Ducks",
-  "Indigo Pandemic",
-  "Whirling Leather"
-].map(name => { return { name: name, score: 0 } });
+var teams = JSON.parse(fs.readFileSync('./teams.json')).map(team => { team.score = 0; return team; });
+var tweets = [];
 
 var TARGET_SCORE = 1000;
 var UPDATE_INTERVAL_SCORES = 5000;
@@ -41,10 +36,9 @@ stream.on('tweet', getStream);
 // console.log(stream);
 
 function getStream(tweet) {
-  _.each(tweet.entities.hashtags, function(hashtag) {
-    var hashStr = '#' + hashtag.text.toLowerCase();
-  })
+  console.log('Tweet incoming!!!');
 
+  tweets.push(tweet);
 }
 
 // Anytime someone favorites me
@@ -57,9 +51,8 @@ function favorite(eventMsg) {
   randTweet('.@' + screenName + ' Thank You');
 }
 
-
 // randTweet();
-// setInterval(randTweet, 360*10000);
+// setInterval(randTweet, 5000);
 
 function randTweet(txt) {
 
@@ -81,7 +74,6 @@ function randTweet(txt) {
 
 }
 
-
 function calculateScores() {
   // mocking the scores by increasing each by a random amount
   // if all teams achieve the target score, reset all scores
@@ -101,16 +93,17 @@ calculateScores();
 
 setInterval(calculateScores, UPDATE_INTERVAL_SCORES);
 
+// routes
 app.get('/', function(req, res) {
-  res.render('index', {
-    message: function(tweet) {
-            $('#tweet-list').appendTo('<li class= "list-group-item">' + tweet.text + '</li>')
-    }
-  });
+  res.render('index', { teams: teams });
 });
 
 app.get('/api/teams', function(req, res) {
   res.json(teams);
+});
+
+app.get('/api/tweets', function(req, res) {
+  res.json(tweets);
 });
 
 module.exports = app;
