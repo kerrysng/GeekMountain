@@ -81,6 +81,9 @@
     float: left;
     width: 70px;
   }
+  .soc a:hover {
+      text-shadow: 1px 1px 2px #FFFFFF, 0 0 1em #FFFFFF, 0 0 0.2em #FFFFFF;
+  }
 }
 /*blockquote.twitter-tweet p {
   font-size: 16px;
