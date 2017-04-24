@@ -1,3 +1,4 @@
+
 #tweet-list {
   display: flex;
   flex-flow: column-reverse wrap;
@@ -57,12 +58,23 @@
     float: left;
     width: 70px;
   }
+  .soc a:hover {
+      text-shadow: 1px 1px 2px #FFFFFF, 0 0 1em #FFFFFF, 0 0 0.2em #FFFFFF;
+  }
 }
 /*blockquote.twitter-tweet p {
   font-size: 16px;
   font-weight: normal;
   line-height: 20px;
 }
+=======
+}
+/*blockquote.twitter-tweet p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+>>>>>>> WorkingBranch
 
 blockquote.twitter-tweet a {
   color: inherit;
