@@ -36,6 +36,13 @@
   height: 70px;
 }
 
+.side-nav > header a {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
+}
+
 .side-nav .content > div {
   width: 90%;
   margin: 0 auto;
