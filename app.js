@@ -35,6 +35,8 @@ var stream = T.stream('user');
 stream.on('tweet', getStream);
 // console.log(stream);
 
+stream.on('error', err => console.log(err));
+
 function getStream(tweet) {
   console.log('Tweet incoming!!!');
 
