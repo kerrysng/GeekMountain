@@ -27,3 +27,4 @@ displayScores();
 displayTweets();
 
 setInterval(displayScores, 5000);
+setInterval(displayTweets, 5000);
