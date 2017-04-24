@@ -1,6 +1,30 @@
+
 #tweet-list {
   display: flex;
   flex-flow: column-reverse wrap;
+}
+
+.twitter-wrapper {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  padding: 0 16px 16px 16px;
+  max-width: 70%;
+  background-color: rgba(255, 255, 255, 0.5)
+}
+.twitter-wrapper img {
+  padding-bottom: 1.5em;
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
 }
 
 .twitter-wrapper {
@@ -63,6 +87,14 @@
   font-weight: normal;
   line-height: 20px;
 }
+=======
+}
+/*blockquote.twitter-tweet p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+>>>>>>> WorkingBranch
 
 blockquote.twitter-tweet a {
   color: inherit;

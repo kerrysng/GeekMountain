@@ -1,3 +1,4 @@
+
 var displayScores = function() {
   $.ajax({
     url: '/api/teams'
@@ -23,10 +24,15 @@ var displayTweets = function() {
 };
 
 displayScores();
-displayTweets();
+// displayTweets();
 
 setInterval(displayScores, 5000);
+<<<<<<< HEAD
 setInterval(displayTweets, 5000);
+=======
+// setInterval(displayTweets, 5000);
+var $scrollingDiv = $(".soc_media");
+>>>>>>> WorkingBranch
 
 $(window).scroll(function(){
        $scrollingDiv
