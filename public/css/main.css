@@ -52,7 +52,11 @@ body {
 
 .soc {
     overflow:hidden;
-    margin:0; padding:0;
+    margin:0;
+    padding:0;
+    display: inline-block;
+    width: 90%;
+    vertical-align: middle;
     /*list-style:none;*/
 }
 
@@ -133,6 +137,16 @@ body {
 }
 
 .soc_media {
-  float: right;
+  position: fixed;
+  top: 0px;
+  right: 30px;
+  height: 100%;
   width: 70px;
+}
+
+.soc_media:before {
+  display: inline-block;
+  content: '';
+  vertical-align: middle;
+  height: 100%;
 }

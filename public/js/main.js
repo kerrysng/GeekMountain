@@ -27,12 +27,3 @@ displayScores();
 displayTweets();
 
 setInterval(displayScores, 5000);
-
-var $scrollingDiv = $(".soc_media");
-
-
-$(window).scroll(function(){
-       $scrollingDiv
-              .stop()
-              .animate({"marginTop": ($(window).scrollTop() + 30) + "px"}, "slow" );
-});
