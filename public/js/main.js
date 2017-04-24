@@ -14,6 +14,7 @@ var displayTweets = function() {
 
     tweets.forEach(function(tweet) {
       $('#tweet-list').append($('<div>').text(tweet.text));
+      // $('#tweet-list').prepend($('<div>').text(tweet.user.screen_name));
 
       if (tweet.entities.media && tweet.entities.media[0].media_url) {
         $('#tweet-list').append($('<img>').attr('src', tweet.entities.media[0].media_url));

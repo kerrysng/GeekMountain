@@ -23,7 +23,7 @@ var T = new Twit({
   consumer_secret:      process.env.CONSUMER_SECRET,
   access_token:         process.env.ACCESS_TOKEN,
   access_token_secret:  process.env.ACCESS_TOKEN_SECRET,
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+  timeout_ms:           30*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
 //add cookie parsing functionality to our express app
@@ -37,6 +37,7 @@ stream.on('tweet', getStream);
 
 function getStream(tweet) {
   console.log('Tweet incoming!!!');
+  console.log(tweet);
 
   tweets.push(tweet);
 }
